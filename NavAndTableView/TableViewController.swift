@@ -17,15 +17,17 @@ class TableViewController: UIViewController {
         installTableView()
     }
     
-    /*override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Note: reload the tableView in case a value displayed by the menu has been modified in a sub menu
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+    override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        for press in presses {
+            switch press.type {
+            case .playPause:
+                updateModelAndView()
+            default:()
+            }
         }
-    }*/
-
+        super.pressesEnded(presses, with: event)
+    }
+    
     // MARK: - Private API
     private func installTableView() {
         tableView = UITableView(frame: view.bounds, style: .grouped)
@@ -37,8 +39,12 @@ class TableViewController: UIViewController {
         tableView.remembersLastFocusedIndexPath = true
     }
     
-    private func reloadTableView() {
-        tableView.reloadData()
+    private func updateModelAndView() {
+        detailValue = !detailValue
+
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
 
@@ -54,6 +60,7 @@ extension TableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
+        //let config = UIListContentConfiguration.
         cell.textLabel?.text = "Item #\(indexPath.row)"
         cell.detailTextLabel?.text = detailValue ? "yes" : "no"
         return cell
@@ -62,9 +69,6 @@ extension TableViewController: UITableViewDataSource {
 
 extension TableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
-        
-        detailValue = !detailValue
-        reloadTableView()
+        updateModelAndView()
     }
 }

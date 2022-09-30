@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="21225" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vyd-Ll-PSj">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="21225" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="boB-kn-c41">
     <device id="appleTV" appearance="light"/>
     <dependencies>
         <deployment identifier="tvOS"/>
@@ -9,56 +9,48 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="eet-iI-nx5">
-            <objects>
-                <navigationController id="vyd-Ll-PSj" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iAl-HQ-FDu">
-                        <rect key="frame" x="0.0" y="60" width="1920" height="145"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Pij-yX-SnK"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="33P-uC-Ji8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2273" y="-46"/>
-        </scene>
         <!--Main View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="iuO-EQ-Lqu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="NavAndTableView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="boB-kn-c41" customClass="MainViewController" customModule="NavAndTableView" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="xqN-g0-MYp"/>
+                        <viewControllerLayoutGuide type="bottom" id="Uej-o7-kbi"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="pvJ-N1-k9x">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsQ-zs-3n9">
-                                <rect key="frame" x="864" y="497" width="192" height="86"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tSE-Uz-NFd">
+                                <rect key="frame" x="579" y="150" width="761" height="779"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                <connections>
-                                    <action selector="didTapButton:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="c0l-im-1cy"/>
-                                </connections>
-                            </button>
+                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select a cell or hit Pay/Pause button to update the tableView" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVE-3f-gnw">
+                                <rect key="frame" x="464" y="60" width="993" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="wu6-TO-1qx"/>
+                        <viewLayoutGuide key="safeArea" id="ey6-4h-vHN"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fMb-Tj-ySs"/>
+                    <navigationItem key="navigationItem" id="SKC-M7-y6v"/>
+                    <connections>
+                        <outlet property="containerView" destination="tSE-Uz-NFd" id="mHp-tj-FV1"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sEk-U3-BAC" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-32" y="-46"/>
+            <point key="canvasLocation" x="-620" y="211"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
